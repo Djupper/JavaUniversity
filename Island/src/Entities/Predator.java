@@ -4,19 +4,15 @@ public abstract class Predator extends Animal {
 
 
     @Override
-    public void move() {
+    public void eat(Object victim) {
+        if (victim instanceof Animal){
+            if(count_max_eat < mass){
+                System.out.println();
+            }
 
+        }
+        {
+
+        }
     }
-
-    @Override
-    public void eat() {
-
-    }
-
-    @Override
-    public void reproduction() {
-        super.reproduction();
-    }
-
-
 }
