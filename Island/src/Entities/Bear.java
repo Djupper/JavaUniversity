@@ -1,24 +1,12 @@
 package Entities;
 
-public class Bear extends Predator{
+public class Bear extends Predator {
 
-    @Override
-    public void move() {
-        super.move();
-    }
 
-    @Override
-    public void eat() {
-        super.eat();
-    }
+    public Bear() {
 
-    @Override
-    public void die() {
 
     }
 
-    @Override
-    public void reproduction() {
-        super.reproduction();
-    }
+
 }

@@ -4,16 +4,61 @@ import java.util.Map;
 
 public abstract class Animal {
 
-    protected int mass;
-    protected int priority;
-    protected int max_move;
-    protected int count_eaten;
-    protected int count_move_for_eaten;
+    public int getMass() {
+        return mass;
+    }
 
-    public abstract void move();
+    public void setMass(int mass) {
+        this.mass = mass;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public int getMax_move() {
+        return max_move;
+    }
+
+    public void setMax_move(int max_move) {
+        this.max_move = max_move;
+    }
+
+    public int getCount_eaten() {
+        return count_eaten;
+    }
+
+    public void setCount_eaten(int count_eaten) {
+        this.count_eaten = count_eaten;
+    }
+
+    public int getCount_move_for_eaten() {
+        return count_move_for_eaten;
+    }
+
+    public void setCount_move_for_eaten(int count_move_for_eaten) {
+        this.count_move_for_eaten = count_move_for_eaten;
+    }
+
+    private int mass;
+    private int priority;
+    private int max_move;
+    private int count_eaten;
+    private int count_move_for_eaten;
 
     public abstract void eat();
-    public abstract void die();
+
+    public void move() {
+    }
+
+
+    public void die() {
+
+    }
 
     public void reproduction() {
 
