@@ -1,8 +1,13 @@
 package Entities;
 
-import java.util.Map;
-
 public abstract class Animal {
+    private int mass;
+    private int priority;
+    private int max_move;
+    private int count_eaten;
+    private int count_move_for_eaten;
+
+    public abstract void eat();
 
     public int getMass() {
         return mass;
@@ -44,13 +49,6 @@ public abstract class Animal {
         this.count_move_for_eaten = count_move_for_eaten;
     }
 
-    private int mass;
-    private int priority;
-    private int max_move;
-    private int count_eaten;
-    private int count_move_for_eaten;
-
-    public abstract void eat();
 
     public void move() {
     }
@@ -65,4 +63,14 @@ public abstract class Animal {
     }
 
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "mass=" + mass +
+                ", priority=" + priority +
+                ", max_move=" + max_move +
+                ", count_eaten=" + count_eaten +
+                ", count_move_for_eaten=" + count_move_for_eaten +
+                '}';
+    }
 }
