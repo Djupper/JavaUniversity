@@ -1,31 +1,37 @@
 package Controller;
 
+import Entities.AnimalType;
 import Entities.Bear;
-import Entities.Island;
+import Entities.Grass;
 import Entities.Rabbit;
-
-import java.util.ArrayList;
-import java.util.IdentityHashMap;
 
 public class Main {
     public static void main(String[] args) {
 
+        final EatDecider eatDecider = new EatDecider();
+
+        Rabbit rabbit = new Rabbit();
+        rabbit.setMass(4);
         Bear bear = new Bear();
 
-        System.out.println(bear);
-        bear.setMass(2);
-        bear.eat();
-        System.out.println(bear);
-        Rabbit rabbit = new Rabbit();
-        System.out.println(rabbit);
-        rabbit.setMass(1);
-        rabbit.eat();
-        System.out.println(rabbit);
+        System.out.println(" Bear mass = " + bear.getMass());
+        bear.setMass(248);
 
-        Island island =  new Island(10,2);
+        if (eatDecider.willEat(bear.animalType, rabbit.animalType) && bear.getMass() < bear.getMAX_MASS()) {
+            bear.eat(rabbit);
+            int mass_pred = bear.getMAX_MASS() - bear.getMass();
+            //проверка сколько медведь может сьесть
+            if (mass_pred > rabbit.getMass()) { //-сильно голодный
+                if (bear.getCount_eaten() >= rabbit.getMass()) {  // - сколько может сьесть
+                    bear.setMass(bear.getMass() + rabbit.getMass());
+                } else {
+                    bear.setMass(bear.getMass() + bear.getCount_eaten());
+                }
 
-
-
+            } else {
+                bear.setMass(bear.getMAX_MASS());
+            }
         }
+        System.out.println(" Bear mass = " + bear.getMass());
     }
 }

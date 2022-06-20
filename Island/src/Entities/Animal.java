@@ -1,11 +1,29 @@
 package Entities;
 
-public abstract class Animal {
-    private int mass;
-    private int priority;
-    private int max_move;
-    private int count_eaten;
-    private int count_move_for_eaten;
+
+import Controller.Entity;
+
+public abstract class Animal extends Entity {
+
+    protected int mass;
+    protected int priority;
+    protected int max_move;
+    protected int count_eaten;
+    protected int count_move_for_eaten;
+
+    public Animal(AnimalType animalType) {
+        super(animalType);
+    }
+
+    public int getMax_eat() {
+        return max_eat;
+    }
+
+    public void setMax_eat(int max_eat) {
+        this.max_eat = max_eat;
+    }
+
+    protected int max_eat;
 
     public abstract void eat();
 
@@ -73,4 +91,6 @@ public abstract class Animal {
                 ", count_move_for_eaten=" + count_move_for_eaten +
                 '}';
     }
+
+
 }

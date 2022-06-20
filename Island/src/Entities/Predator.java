@@ -1,10 +1,20 @@
 package Entities;
 
+import Controller.Entity;
+
+import java.util.SortedMap;
+
 public abstract class Predator extends Animal {
-
-
-    @Override
-    public void eat() {
-        System.out.println("Я ем других животнвх и иногда травку");
+    public Predator(AnimalType animalType) {
+        super(animalType);
     }
+    public void eat(Entity entity) {
+
+        System.out.println(getClass().getSimpleName() + " eats " + entity.getClass().getSimpleName());
+        entity.isAlive = false;
+        System.out.println(entity.getClass().getSimpleName()+ " -  жертва!" );
+
+    }
+
+
 }
