@@ -1,39 +1,31 @@
 package Entities;
 
 
-import Controller.Entity;
-
 public class Bear extends Predator {
+
+    final int MAX_MASS = 500;
+    final int MAX_COUNT_OF_EAT = 80;
+
     public int getMAX_MASS() {
         return MAX_MASS;
     }
 
-    final int MAX_MASS = 250;
+    public int getMAX_COUNT_OF_EAT() {
+        return MAX_COUNT_OF_EAT;
+    }
+
     @Override
     public void eat() {
-
-    }
-    @Override
-    public int getMass() {
-        return mass;
     }
 
-    @Override
-    public void setMass(int mass) {
-        this.mass = mass;
-    }
     public Bear() {
         super(AnimalType.BEAR_TYPE);
-        setMass(250);
-        setCount_eaten(38);
+        setMass(MAX_MASS);
+        setMax_eat(MAX_COUNT_OF_EAT);
+
         //setMax_move(3);
         //setPriority(10);
-
-
-
     }
-
-
 }
 
 

@@ -5,17 +5,46 @@ import Controller.Entity;
 
 public abstract class Animal extends Entity {
 
-    protected int mass;
-    protected int priority;
-    protected int max_move;
-    protected int count_eaten;
+    protected double mass; //масса животного (может меняться)
+
+    protected double max_mass;//максимальная масса (неизменяемя величина)
+    protected double max_eat;//кол-во еды максимально сьедаемой (неизменяемая величина)
+    protected int priority; // приоритет
+    protected int max_move; //
+    protected double count_eaten;
     protected int count_move_for_eaten;
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "mass=" + mass +
+                ", max_mass=" + max_mass +
+                ", max_eat=" + max_eat +
+                ", priority=" + priority +
+                ", max_move=" + max_move +
+                ", count_eaten=" + count_eaten +
+                ", count_move_for_eaten=" + count_move_for_eaten +
+                ", isAlive=" + isAlive +
+                ", animalType=" + animalType +
+                '}';
+    }
 
     public Animal(AnimalType animalType) {
         super(animalType);
     }
+    public double getMax_mass() {
+        return max_mass;
+    }
 
-    public int getMax_eat() {
+    public void setMax_mass(double max_mass) {
+        this.max_mass = max_mass;
+    }
+
+    public void setMax_eat(double max_eat) {
+        this.max_eat = max_eat;
+    }
+
+    public double getMax_eat() {
         return max_eat;
     }
 
@@ -23,15 +52,15 @@ public abstract class Animal extends Entity {
         this.max_eat = max_eat;
     }
 
-    protected int max_eat;
+
 
     public abstract void eat();
 
-    public int getMass() {
+    public double getMass() {
         return mass;
     }
 
-    public void setMass(int mass) {
+    public void setMass(double mass) {
         this.mass = mass;
     }
 
@@ -51,11 +80,11 @@ public abstract class Animal extends Entity {
         this.max_move = max_move;
     }
 
-    public int getCount_eaten() {
+    public double getCount_eaten() {
         return count_eaten;
     }
 
-    public void setCount_eaten(int count_eaten) {
+    public void setCount_eaten(double count_eaten) {
         this.count_eaten = count_eaten;
     }
 
@@ -75,21 +104,16 @@ public abstract class Animal extends Entity {
     public void die() {
 
     }
-
     public void reproduction() {
 
     }
 
 
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "mass=" + mass +
-                ", priority=" + priority +
-                ", max_move=" + max_move +
-                ", count_eaten=" + count_eaten +
-                ", count_move_for_eaten=" + count_move_for_eaten +
-                '}';
+    public boolean whatToEat() {
+        if (getMass() < getMax_mass()) {
+            return true;
+        } else
+            return false;
     }
 
 

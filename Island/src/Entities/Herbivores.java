@@ -9,9 +9,7 @@ public abstract class Herbivores extends Animal{
         super(animalType);
     }
     public void eat(Entity entity) {
-        System.out.println(getClass().getSimpleName() + " " + entity.getClass().getSimpleName());
+        System.out.println(getClass().getSimpleName() + " eat - " + entity.getClass().getSimpleName());
     }
-
-
 
 }
